@@ -1,0 +1,45 @@
+Docker
+
+./mvnw clean package  - cria o jar no java
+
+dockerfile:
+FROM eclipse-temurin:25
+
+WORKDIR /app
+
+COPY target/*.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+comandos:
+docker build -t gepeto-service .  - cria a imagem no Docker
+docker run -p 8081:8080 gepeto-service  - roda a imagem em um container
+
+
+
+docker-compose.yml:
+version: "3.9"
+
+services:
+  gepeto:
+    build: ./gepeto
+    ports:
+      - "8080:8080"
+
+  moura:
+    build: ./moura
+    ports:
+      - "8081:8080"
+
+moura - nome do container (provável)
+build: ./moura - pasta com o dockerfile (provável)
+
+"8081:8080"
+8081 - porta pra eu acessar
+8080 - porta pra oq ta dentro do docker acessar
+
+
+comandos:
+docker compose up --build  - cria o compose
+docker compose down  - para o compose (derruba o container)
