@@ -29,13 +29,13 @@ function App() {
         
         <h1 className={`text-3xl text-center font-medium mb-8 mt-12`}>Lista de Livros</h1>
         <div className={`mx-4`}>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`}>
+          <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-4`}>
             {livros
             ? livros.map(livro => (
-              <div key={livro.id} className={`flex gap-x-4 bg-gray-200 rounded-2xl p-4`}>
+              <div key={livro.id} className={` flex gap-x-4 bg-gray-200 rounded-2xl border border-gray-300 p-4`}>
                 <h1>{livro.titulo}</h1>
                 {livro.nota && (
-                  <div>{livro.nota}</div>
+                  <span className={`ml-auto font-medium text-nowrap`}>{livro.nota}/5</span>
                 )}
               </div>
             ))
