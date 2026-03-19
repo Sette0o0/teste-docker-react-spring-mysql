@@ -8,7 +8,7 @@ function App() {
 
   async function buscarLivros(){
     try {
-      const response = await api.get("livros")
+      const response = await api.get("/livros")
       setLivros(response.data as livro[])
     } catch (err: any) {
       console.error("Deu erro aqui:", err)

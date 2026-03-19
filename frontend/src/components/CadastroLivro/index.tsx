@@ -29,11 +29,9 @@ function CadastroLivro({ reloadLivros, className = "" }: CadastroLivroProps){
       .filter(([_, value]) => {
         return value != null && value != 0
       }))
-    
-      console.log(data, form);
     try {
       
-      const response = await api.post("livros", data)
+      await api.post("/livros", data)
       
       reloadLivros()
 
